@@ -1,6 +1,6 @@
-class ChoiceUsers < ActiveRecord::Migration
+class ChoicesUsers < ActiveRecord::Migration
   def change
-    create_table :choice_users do |t|
+    create_table :choices_users do |t|
       t.references :choice
       t.references :user
 
