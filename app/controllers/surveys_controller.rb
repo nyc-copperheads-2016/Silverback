@@ -9,6 +9,6 @@ end
 
 
 post '/surveys' do
-
+  # survey = current_user.surveys.build()
 
 end
