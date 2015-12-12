@@ -5,7 +5,7 @@ end
 post '/users' do
   user = User.new(params)
   if user.save
-    redirect '/'
+    redirect '/surveys'
   else
     erb :'users/new', locals: { errors: user.errors.full_messages }
   end
@@ -19,4 +19,3 @@ get '/users/:id/surveys' do
   surveys = Survey.all.where('user_id = ?', params[:id])
   erb :'/users/show', locals: { surveys: surveys }
 end
-
