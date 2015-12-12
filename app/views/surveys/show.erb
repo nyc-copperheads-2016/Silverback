@@ -12,7 +12,7 @@
 <!-- params[choice] -->
       <%question.choices.each do |choice|%>
         <li>
-          <input type="hidden" name="choice[user_id] value="<%current_user%>">
+          <input type="hidden" name="choice[user_id]" value="<%current_user%>">
           <input type="radio" name="choice[choice_id]" value="<%= choice.id %>"> <%=choice.choice_text%>
         </li>
       <%end%>
