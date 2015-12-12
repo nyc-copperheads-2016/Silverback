@@ -20,4 +20,3 @@ get '/users/:id/surveys' do
   erb :'/users/show', locals: { surveys: surveys }
 end
 
-
