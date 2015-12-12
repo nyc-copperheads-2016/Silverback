@@ -1,3 +1,6 @@
+User.create(username: 'admin', password: 'admin',
+            password_confirmation: 'admin', email: 'admin@admin.com')
+
 5.times do
   passphrase_generator = Faker::Internet.password
 
