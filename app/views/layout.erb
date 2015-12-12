@@ -15,10 +15,23 @@
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Silverback Surveys</title>
 </head>
 <body>
-<div id="content">
+  <div id="content">
+  <h1>
+    <a href='/'>Silverback Surveys</a>
+  </h1>
+  <% if logged_in? %>
+    <span class='welcome'>Welcome <%= current_user.username %></span>
+    <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='DELETE'>
+      <input id='logout' type='submit' value='Logout'>
+    </form>
+  <% else %>
+    <a href='/users/new'>New User</a>
+    <a href='/sessions/new'>Login</a>
+  <% end %>
   <%= yield %>
 </div>
 </body>
