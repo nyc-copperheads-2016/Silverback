@@ -1,0 +1,18 @@
+<h1>Create a new survey</h1>
+<form class "ui large form" action="/surveys" method="post">
+  <h5>Enter Your Survey Title</h5>
+  <textarea rows='1' cols='50' name="title"></textarea>
+
+
+  <h5>Enter Your Survey Question</h5>
+  <textarea rows='4' cols='50' name="question"></textarea>
+
+  <h5>Enter Your Survey choices</h5>
+  <textarea rows='8' cols='50' name="choice"></textarea>
+
+<!-- error message -->
+  <input type="submit" value="Submit">
+</form>
+<form action="/" method ="get">
+  <input type="submit" value="Cancel">
+</form>

@@ -18,10 +18,14 @@
   <title>Silverback Surveys</title>
 </head>
 <body>
+
   <div id="content">
-  <h1>
-    <a href='/'>Silverback Surveys</a>
-  </h1>
+  <div class="ui container">
+   <div class="ui large menu inverted pointing black">
+    <h1>
+      <a href='/'>Silverback Surveys</a>
+    </h1>
+  </div>
   <% if logged_in? %>
     <span class='welcome'>Welcome <%= current_user.username %></span>
     <form method='post' action='/sessions'>
@@ -32,7 +36,9 @@
     <a href='/users/new'>New User</a>
     <a href='/sessions/new'>Login</a>
   <% end %>
+
   <%= yield %>
-</div>
+  </div>
+
 </body>
 </html>
