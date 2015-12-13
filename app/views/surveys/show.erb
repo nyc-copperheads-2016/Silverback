@@ -10,8 +10,8 @@
       <form action="/users/<%= current_user.id %>/choices" method = "post">
       <% question.choices.each do |choice| %>
         <li>
-          <input type="hidden" name="question_id" value="<%= question.id %>">
-          <input type="radio" name="choice_id" value="<%= choice.id %>">
+          <input type="hidden" name="question_id" value=<%= question.id %>>
+          <input type="radio" name="choice_id" value=<%= choice.id %>>
           <%= choice.choice_text %>
         </li>
       <% end %>
