@@ -16,6 +16,7 @@ get '/users/:id' do
 end
 
 get '/users/:id/surveys' do
-  surveys = Survey.all.where('user_id = ?', params[:id])
-  erb :'/users/show', locals: { surveys: surveys }
+  surveys_completed = current_user.surveys
+  surveys_created = current_user.authored_surveys
+  erb :'/users/show', locals: { surveys_completed: surveys_completed, surveys_created: surveys_created }
 end

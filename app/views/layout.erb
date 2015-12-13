@@ -25,6 +25,9 @@
 
 
   <% if logged_in? %>
+
+    <span class='welcome'>Welcome <a href="/users/<%= current_user.id %>/surveys"><%= current_user.username %></a></span>
+
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='DELETE'>
       <input class="ui tiny basic button red right floated" id='logout' type='submit' value='Logout'>
