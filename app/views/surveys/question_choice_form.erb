@@ -1,0 +1,11 @@
+<form method='post' action='/surveys/<%= survey.id %>/questions'>
+  <h5>Enter Your Survey Question</h5>
+  <textarea rows='4' cols='50' name="question"></textarea>
+
+  <h5>Enter Your Survey choices</h5>
+  <textarea rows='8' cols='50' placeholder="use comma to separate possible choices" name="choice"></textarea>
+
+  <input type="submit" name="proceed_to" value="Next">
+  <input type="submit" name="proceed_to" value="Done">
+</form>
+

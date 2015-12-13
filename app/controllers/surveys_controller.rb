@@ -10,16 +10,9 @@ end
 post '/surveys' do
   survey = Survey.new(title: params[:title], user_id: current_user.id)
   current_user.surveys << survey
-  question = Question.new(question_text: params[:question])
-  survey.questions << question
 
-  choice_parser(params[:choice]).each do |c|
-    choice = Choice.create!(choice_text: c)
-    question.choices << choice
-  end
-
-  if survey.save && question.save
-    redirect '/'
+  if survey.save #&& question.save
+    erb :'surveys/question_choice_form', locals: { survey: survey}
   else
     @errors = survey.errors.full_messages
     erb :'surveys/form'
@@ -29,4 +22,35 @@ end
 get '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
   erb :'surveys/show', locals: { survey: survey }
+end
+
+post '/surveys/:id/questions' do
+  # binding.pry
+  survey = Survey.find(params[:id])
+  question = Question.new(survey_id: params[:id], question_text: params[:question])
+
+  if question.save
+
+    choice_parser(params[:choice]).each do |cs_choice|
+      choice = Choice.new(question_id: question.id, choice_text: cs_choice)
+      # question.choices << choice
+
+      if choice.save
+        # binding.pry
+      else
+        @errors = choice.errors.full_messages
+        erb :'surveys/question_choice_form', locals: { survey: survey}
+      end
+    end
+
+    if params[:proceed_to] == "Next"
+      erb :'surveys/question_choice_form', locals: { survey: survey}
+    else
+      redirect '/surveys'
+    end
+
+  else
+    @errors = question.errors.full_messages
+    erb :'surveys/question_choice_form', locals: { survey: survey}
+  end
 end
