@@ -1,9 +1,7 @@
 post '/users/:id/choices' do
-  new_choice_for_user = Choice.new(choice_text: params[:choice_text].to_i,
-                                   question_id: params[:question_id].to_i)
+  new_choice_for_user = Choice.find(params[:choice_id])
 
-  if new_choice_for_user.save
-    current_user.choices << new_choice_for_user
+  if new_choice_for_user.users << current_user
     redirect '/'
   else
     survey = Choice.find_by(choice_id: params[:choice_id]).survey

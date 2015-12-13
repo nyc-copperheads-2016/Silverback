@@ -18,4 +18,6 @@ User.create(username: 'admin', password: 'admin',
   4.times do
     question.choices.create!(choice_text: Faker::Hacker.say_something_smart)
   end
+
+  Choice.first.users << user
 end
