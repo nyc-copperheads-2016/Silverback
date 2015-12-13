@@ -1,7 +1,23 @@
-<h1>Log In</h1>
-
-<form method='post' action='/sessions'>
-  <input type='text' name='username' placeholder='Enter Username' />
-  <input type='password' name='password' placeholder='Enter Password' />
-  <input type='submit' value='Log in' />
-</form>
+<div class="break"></div>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h1 class="ui blue header">
+      <div class="content">Log-in to your account</div>
+    </h1>
+    <form class="ui large form" method='post' action='/sessions'>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left input">
+            <input type='text' name='username' placeholder='Enter Username' />
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left input">
+            <input type='password' name='password' placeholder='Enter Password' />
+          </div>
+        </div>
+        <input class="ui fluid large orange button" type="submit" value="Log In">
+      </div>
+    </form>
+  </div>
+</div>
