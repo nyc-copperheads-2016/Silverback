@@ -19,13 +19,13 @@
 </head>
 <body>
 
-  <div id="content">
-  <div class="ui container">
-   <div class="ui large menu inverted pointing black">
+
+  <div class="ui main container">
+   <div class="ui huge menu inverted pointing black">
     <h1>
       <a href='/'>Silverback Surveys</a>
     </h1>
-  </div>
+    </div>
   <% if logged_in? %>
     <span class='welcome'>Welcome <%= current_user.username %></span>
     <form method='post' action='/sessions'>
