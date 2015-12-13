@@ -6,4 +6,8 @@ helpers do
   def logged_in?
     !!session[:user_id]
   end
+
+  def choice_parser(choice_string)
+    choice_string.split(", ")
+  end
 end

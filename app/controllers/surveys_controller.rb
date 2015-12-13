@@ -9,7 +9,22 @@ end
 
 
 post '/surveys' do
-  # survey = current_user.surveys.build()
+  survey = Survey.new(title: params[:title], user_id: current_user.id)
+  current_user.surveys << survey
+  question = Question.new(question_text: params[:question])
+  survey.questions << question
+
+  choice_parser(params[:choice]).each do |c|
+    choice = Choice.create!(choice_text: c)
+    question.choices << choice
+  end
+
+  if survey.save && question.save
+    redirect '/'
+  else
+    @errors = survey.errors.full_messages
+    erb :'surveys/form'
+  end
 
 end
 
