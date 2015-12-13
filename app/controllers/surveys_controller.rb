@@ -1,12 +1,11 @@
 get '/surveys' do
   surveys = Survey.order(created_at: :desc)
-  erb :'/surveys/index', locals: {surveys: surveys}
+  erb :'/surveys/index', locals: { surveys: surveys }
 end
 
 get '/surveys/new' do
   erb :'surveys/form'
 end
-
 
 post '/surveys' do
   survey = Survey.new(title: params[:title], user_id: current_user.id)
@@ -25,15 +24,9 @@ post '/surveys' do
     @errors = survey.errors.full_messages
     erb :'surveys/form'
   end
-
 end
-
 
 get '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
-  erb :'surveys/show', locals: {survey: survey}
-end
-
-post '/surveys/:id' do
-
+  erb :'surveys/show', locals: { survey: survey }
 end

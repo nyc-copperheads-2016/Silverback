@@ -12,7 +12,7 @@ post '/users' do
 end
 
 get '/users/:id' do
-  redirect '/users/'+ params[:id].to_s + '/surveys'
+  redirect '/users/' + params[:id].to_s + '/surveys'
 end
 
 get '/users/:id/surveys' do
