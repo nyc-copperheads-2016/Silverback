@@ -3,26 +3,25 @@
 <h6>Created by <%= survey.user.username %> on <%= survey.created_at.month %>/<%= survey.created_at.day %>/<%= survey.created_at.year %></h6>
 <hr>
 <h2></h2>
-<form action="/choices/:id/users/<%= current_user.id %>" method = "post">
 <ol>
   <% survey.questions.each do |question| %>
   <li><%= question.question_text %></li>
     <ol type="A">
-<!-- params[choice] -->
+      <form action="/users/<%= current_user.id %>/choices" method = "post">
       <% question.choices.each do |choice| %>
         <li>
-          <input type="hidden" name="choice[user_id]" value="<% current_user.id %>">
-          <input type="radio" name="choice[choice_id]" value="<% choice.id %>">
+          <input type="hidden" name="question_id" value="<%= question.id %>">
+          <input type="radio" name="choice_id" value="<%= choice.id %>">
           <%= choice.choice_text %>
         </li>
       <% end %>
+      <h1></h1>
+      <input class="ui tiny button blue" type="submit" value="Submit">
+      </form>
+      <h4></h4>
+      <form action="/" method="get">
+        <input class="ui tiny button blue" type="submit" value="Cancel">
+      </form>
     </ol>
   <% end %>
 </ol>
-<h1></h1>
-  <input class="ui tiny button blue" type="submit" value="Submit">
-</form>
-<h4></h4>
-<form action="/" method="get">
-  <input class="ui tiny button blue" type="submit" value="Cancel">
-</form>
