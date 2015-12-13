@@ -1,6 +1,8 @@
-<h2><%= survey.title %></h2>
-
-<h6>Created by <%= survey.user.username %> on <%= survey.created_at.month %>/<%= survey.created_at.day %>/<%= survey.created_at.year %></h6>
+<h1 class="ui large header"><%= survey.title %>
+  <div class="sub header">
+    Created by <%= survey.user.username %> on <%= survey.created_at.month %>/<%= survey.created_at.day %>/<%= survey.created_at.year %>
+  </div>
+</h1>
 <hr>
 <h2></h2>
 <ol>
@@ -15,13 +17,13 @@
           <%= choice.choice_text %>
         </li>
       <% end %>
-      <h1></h1>
-      <input class="ui tiny button blue" type="submit" value="Submit">
-      </form>
-      <h4></h4>
-      <form action="/" method="get">
-        <input class="ui tiny button blue" type="submit" value="Cancel">
-      </form>
     </ol>
+      <h1></h1>
+      <div class="ui tiny buttons">
+        <input class="ui tiny button blue" type="submit" value="Submit">
+      </form>
+      <div class="or"></div>
+      <a href ="/"><button class="ui button">Cancel</button></a>
+      </div>
   <% end %>
 </ol>

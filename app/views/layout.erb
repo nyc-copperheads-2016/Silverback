@@ -21,23 +21,22 @@
 
 
   <div class="ui main container">
-   <div class="ui huge menu inverted pointing black">
-    <h1>
-      <a href='/'>Silverback Surveys</a>
-    </h1>
-    </div>
+    <h1 class="ui inverted block large header"><a href='/'>Silverback Surveys</a></h1>
+
+
   <% if logged_in? %>
-    <span class='welcome'>Welcome <%= current_user.username %></span>
     <form method='post' action='/sessions'>
       <input type='hidden' name='_method' value='DELETE'>
-      <input id='logout' type='submit' value='Logout'>
+      <input class="ui tiny basic button red right floated" id='logout' type='submit' value='Logout'>
+      <h5 class="ui header right floated">Welcome <%= current_user.username %></h5>
     </form>
   <% else %>
-    <a href='/users/new'>New User</a>
-    <a href='/sessions/new'>Login</a>
+    <a href='/users/new'><button class="ui facebook tiny button">New User</button></a>
+    <!-- <a href='/sessions/new'>Login</a> -->
   <% end %>
 
   <%= yield %>
+
   </div>
 
 </body>
