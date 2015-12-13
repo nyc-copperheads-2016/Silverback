@@ -54,3 +54,9 @@ post '/surveys/:id/questions' do
     erb :'surveys/question_choice_form', locals: { survey: survey}
   end
 end
+
+get '/surveys/:id/questions' do
+  survey = Survey.find(params[:id])
+  erb :'questions/show', locals: {survey: survey}
+end
+

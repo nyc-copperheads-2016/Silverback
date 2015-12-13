@@ -1,20 +1,9 @@
 <h2>
-  Surveys Completed
-</h2>
-<% surveys_completed.each do |survey| %>
-  <p>
-    <a href="/surveys/<% survey.id %>">
-      <%= survey.title %>
-    </a>
-  </p>
-<% end %>
-
-<h2>
   Surveys Created
 </h2>
 <% surveys_created.each do |survey| %>
   <p>
-    <a href="/surveys/<% survey.id %>">
+    <a href="/surveys/<%=survey.id %>/questions">
       <%= survey.title %>
     </a>
   </p>

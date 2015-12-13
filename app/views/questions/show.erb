@@ -1,0 +1,16 @@
+<h2 class='ui orange header'>Result for <%=survey.title%></h2>
+
+<p>Survey was taken <%=survey.total_attempt(survey)%> times</p>
+
+<% survey.questions.each do |question|%>
+  <div class="ui header"><%=question.question_text%></div>
+  <%question.choices.each do |choice|%>
+    <div class="ui sub header"><%=choice.choice_text%></div>
+    <%chosen = choice.users.length%>
+    <p>Total time chosen: <%=chosen%></p>
+    <p><%=((chosen.to_f)/(survey.total_attempt(survey).to_f)*100).round(2)%>%</p>
+  <%end%>
+<% end %>
+
+
+
