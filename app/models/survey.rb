@@ -4,6 +4,6 @@ class Survey < ActiveRecord::Base
   belongs_to :user
 
   def total_attempt (survey)
-    survey.users.length
+    survey.questions.first.choices.length
   end
 end
