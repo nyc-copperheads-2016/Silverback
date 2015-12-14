@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+  <head>
+    <!--
+      normalize.css removes cross-browser differences in defaults, e.g.,
+      differences in how form elements appear between Firefox and IE
+      See: http://necolas.github.com/normalize.css/
+    -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!--
+      application.css is where you put your styles
+    -->
+    <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="/js/application.js"></script>
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/js/application.js"></script>
 
-  <title>Silverback Surveys</title>
-</head>
+    <title>Silverback Surveys</title>
+  </head>
 <body>
   <div class="ui main container">
+    <h1 class="ui inverted block large header">
+      <a href='/'>
+        Silverback Surveys
+      </a>
+    </h1>
 
-    <h1 class="ui inverted block large header"><a href='/'>Silverback Surveys</a></h1>
     <% if logged_in? %>
       <form method='post' action='/sessions'>
         <input type='hidden' name='_method' value='DELETE'>
@@ -28,11 +32,19 @@
       </form>
 
       <a href="/users/<%= current_user.id %>/surveys">
-        <div class="ui tiny basic button black right floated">Profile</div>
+        <div class="ui tiny basic button black right floated">
+          Profile
+        </div>
       </a>
-    <h5 class="ui header right floated">Welcome back, <%= current_user.username %></h5>
+    <h5 class="ui header right floated">
+      Welcome back, <%= current_user.username %>
+    </h5>
     <% else %>
-    <a href='/users/new'><button class="ui facebook tiny button">New User</button></a>
+    <a href='/users/new'>
+      <button class="ui facebook tiny button">
+        New User
+      </button>
+    </a>
     <!-- <a href='/sessions/new'>Login</a> -->
 
   <% end %>
@@ -40,6 +52,5 @@
   <%= yield %>
 
   </div>
-
 </body>
 </html>

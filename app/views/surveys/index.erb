@@ -1,16 +1,25 @@
 <h2></h2>
 
-<div class="ui large header">List of Surveys:</div>
+<div class="ui large header">
+  List of Surveys:
+</div>
 <hr>
-<a href='surveys/new'><div class="ui large right floated label orange">
-  <font color="white">Create a New Survey</font>
-</div></a>
+<a href='surveys/new'>
+  <div class="ui large right floated label orange">
+    <font color="white">
+      Create a New Survey
+    </font>
+  </div>
+</a>
 <div class="ui inverted segment">
   <div class="ui inverted relaxed divided list">
     <% surveys.each_with_index do |survey, index| %>
     <div class="item">
       <div class="content">
-        <h4 class="header"><a href="surveys/<%=survey.id%>"><%=index+1%>. <%=survey.title%></a>
+        <h4 class="header">
+          <a href="surveys/<%=survey.id%>">
+            <%=index+1%>. <%=survey.title%>
+          </a>
         </h4>
         <div class="content ui right floated">
           created by: <%=survey.user.username%> on <%=survey.created_at.month%>/<%=survey.created_at.day%>/<%=survey.created_at.year%>

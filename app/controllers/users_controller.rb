@@ -5,6 +5,7 @@ end
 post '/users' do
   user = User.new(params)
   if user.save
+    session[:user_id] = user.id
     redirect '/surveys'
   else
     erb :'users/new', locals: { errors: user.errors.full_messages }
@@ -16,7 +17,7 @@ get '/users/:id' do
 end
 
 get '/users/:id/surveys' do
-  surveys_completed = current_user.surveys
+  # surveys_completed = current_user.surveys
   surveys_created = current_user.authored_surveys
-  erb :'/users/show', locals: { surveys_completed: surveys_completed, surveys_created: surveys_created }
+  erb :'/users/show', locals: { surveys_created: surveys_created }
 end
