@@ -16,7 +16,7 @@ get '/users/:id' do
 end
 
 get '/users/:id/surveys' do
-  surveys_completed = current_user.surveys
+  # surveys_completed = current_user.surveys
   surveys_created = current_user.authored_surveys
   erb :'/users/show', locals: { surveys_completed: surveys_completed, surveys_created: surveys_created }
 end

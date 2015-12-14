@@ -11,33 +11,35 @@
 
 <ol>
   <% survey.questions.each do |question| %>
-  <li>
-    <%= question.question_text %>
-  </li>
-    <ol type="A">
-      <form action="/users/<%= current_user.id %>/choices" method = "post">
-      <% question.choices.each do |choice| %>
-        <li>
-          <input type="hidden" name="question_id" value=<%= question.id %>>
-          <input type="radio" name="choice_id" value=<%= choice.id %>>
-          <%= choice.choice_text %>
-        </li>
-      <% end %>
-    </ol>
+  <div class="question">
+    <li>
+      <%= question.question_text %>
+    </li>
+      <ol type="A">
+        <form class="question-form" action="/users/<%= current_user.id %>/choices" method = "post">
+        <% question.choices.each do |choice| %>
+          <li>
+            <input type="hidden" name="question_id" value=<%= question.id %>>
+            <input type="radio" name="choice_id" value=<%= choice.id %>>
+            <%= choice.choice_text %>
+          </li>
+        <% end %>
+      </ol>
+    <div class="ui tiny buttons">
+            <input class="ui tiny button blue" type="submit" value="Submit">
+          </form>
+
+      <div class="or"></div>
+
+      <a href ="/">
+        <button class="ui button">
+          Cancel
+        </button>
+      </a>
+    </div>
+    <h1></h1>
+  </div>
   <% end %>
 </ol>
 
-<h1></h1>
 
-<div class="ui tiny buttons">
-        <input class="ui tiny button blue" type="submit" value="Submit">
-      </form>
-
-  <div class="or"></div>
-
-  <a href ="/">
-    <button class="ui button">
-      Cancel
-    </button>
-  </a>
-</div>

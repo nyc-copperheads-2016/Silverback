@@ -21,7 +21,7 @@ end
 
 get '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
-  erb :'surveys/show', locals: { survey: survey }
+  erb :'surveys/show', locals: { survey: survey }, layout: !request.xhr?
 end
 
 post '/surveys/:id/questions' do
