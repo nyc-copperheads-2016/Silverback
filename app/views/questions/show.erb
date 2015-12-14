@@ -3,7 +3,7 @@
 </h2>
 
 <p>
-  Survey was taken <%= survey.total_attempt(survey) %> times
+  Survey was taken <%= survey.total_attempts %> times
 </p>
 
 <% survey.questions.each do |question| %>
@@ -19,7 +19,7 @@
       Total time chosen: <%= chosen %>
     </p>
     <p>
-      <%= ((chosen.to_f)/(survey.total_attempt(survey).to_f)*100).round(2) %>%
+      <%= ((chosen.to_f)/(survey.total_attempts.to_f)*100).round(2) %>%
     </p>
   <%end%>
 <% end %>

@@ -5,6 +5,7 @@ end
 post '/users' do
   user = User.new(params)
   if user.save
+    session[:user_id] = user.id
     redirect '/surveys'
   else
     erb :'users/new', locals: { errors: user.errors.full_messages }
