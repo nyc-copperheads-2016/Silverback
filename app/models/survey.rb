@@ -4,12 +4,6 @@ class Survey < ActiveRecord::Base
   belongs_to :user
 
   def total_attempt (survey)
-    total = 0
-    survey.questions.each do |question|
-      question.choices.each do |choice|
-        total += choice.users.length
-      end
-    end
-    total
+    survey.users.length
   end
 end
