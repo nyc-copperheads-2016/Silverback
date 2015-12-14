@@ -19,13 +19,11 @@
   </head>
 <body>
   <div class="ui main container">
-
     <h1 class="ui inverted block large header">
       <a href='/'>
         Silverback Surveys
       </a>
     </h1>
-
 
     <% if logged_in? %>
       <form method='post' action='/sessions'>
@@ -52,6 +50,7 @@
   <% end %>
 
   <%= yield %>
+
   </div>
 </body>
 </html>
