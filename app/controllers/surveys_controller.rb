@@ -21,7 +21,7 @@ end
 
 get '/surveys/:id' do
   survey = Survey.find_by(id: params[:id])
-  if survey.users.includes(current_user)
+  if survey.users.include?(current_user)
     erb :'/surveys/done'
   else
     erb :'surveys/show', locals: { survey: survey }, layout: !request.xhr?
